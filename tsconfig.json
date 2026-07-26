@@ -28,7 +28,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
+    "**/*.mts",
+    "tests/vitest-env.d.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "tests/e2e"]
 }
