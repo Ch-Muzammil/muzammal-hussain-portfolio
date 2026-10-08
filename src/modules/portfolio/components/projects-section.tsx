@@ -15,7 +15,10 @@ export function ProjectsSection({
   compact,
 }: ProjectsSectionProps) {
   return (
-    <section id="work" className="motion-reveal scroll-mt-20 py-16 sm:py-24">
+    <section
+      id="work"
+      className="motion-reveal scroll-mt-20 bg-secondary py-16 sm:py-24"
+    >
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
         <h2 className="font-heading text-3xl tracking-tight text-balance sm:text-4xl">
           {heading}

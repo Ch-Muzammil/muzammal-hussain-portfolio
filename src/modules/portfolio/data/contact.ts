@@ -6,11 +6,11 @@ export const contact = {
   heading: "Contact",
   intro:
     "For a role or a question about the work, email is the best way to reach me.",
-  email: "",
+  email: "chmzml22@gmail.com",
   githubLabel: "GitHub",
-  githubUrl: "",
+  githubUrl: "https://github.com/Ch-Muzammil",
   linkedinLabel: "LinkedIn",
-  linkedinUrl: "",
+  linkedinUrl: "https://www.linkedin.com/in/ch-muzammil",
   resumeUrl: "",
 };
 

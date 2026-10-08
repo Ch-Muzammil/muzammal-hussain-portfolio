@@ -156,6 +156,10 @@
     animation: motion-rise 560ms ease both;
   }
 
+  .motion-enter-late {
+    animation: motion-rise 560ms ease 120ms both;
+  }
+
   @supports (animation-timeline: view()) {
     .motion-reveal {
       animation: motion-rise 700ms ease both;

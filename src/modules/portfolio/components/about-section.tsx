@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { AboutContent } from "../data/about";
 import type { ExperienceItem } from "../data/experience";
 
@@ -13,15 +14,27 @@ export function AboutSection({ about, experience }: AboutSectionProps) {
         <h2 className="font-heading text-3xl tracking-tight text-balance sm:text-4xl">
           {about.heading}
         </h2>
-        <div className="mt-6 max-w-2xl space-y-4">
-          {about.paragraphs.map((paragraph) => (
-            <p
-              key={paragraph}
-              className="text-base leading-relaxed text-muted-foreground sm:text-lg"
-            >
-              {paragraph}
-            </p>
-          ))}
+        <div className="mt-8 flex flex-col items-start gap-6 sm:flex-row sm:gap-10">
+          {about.portrait.src ? (
+            <Image
+              src={about.portrait.src}
+              alt={about.portrait.alt}
+              width={1254}
+              height={1254}
+              sizes="176px"
+              className="aspect-square w-36 shrink-0 rounded-2xl border border-border object-cover sm:w-44"
+            />
+          ) : null}
+          <div className="max-w-2xl space-y-4">
+            {about.paragraphs.map((paragraph) => (
+              <p
+                key={paragraph}
+                className="text-base leading-relaxed text-muted-foreground sm:text-lg"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
         </div>
         <ul className="mt-10 max-w-2xl list-none space-y-6 border-t border-border pt-8">
           {experience.map((item) => (

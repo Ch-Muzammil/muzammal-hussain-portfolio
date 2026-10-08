@@ -1,18 +1,30 @@
 import Link from "next/link";
 import { PUBLIC_NAV } from "@/config/nav";
 import { contact, site } from "@/modules/portfolio";
+import { SocialMark } from "@/modules/portfolio/components/social-mark";
 
 const navLinkClass =
   "link-underline inline-flex h-11 items-center text-sm font-medium text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50";
 
 const socials = [
   contact.githubUrl
-    ? { href: contact.githubUrl, label: contact.githubLabel }
+    ? {
+        href: contact.githubUrl,
+        label: contact.githubLabel,
+        kind: "github" as const,
+      }
     : null,
   contact.linkedinUrl
-    ? { href: contact.linkedinUrl, label: contact.linkedinLabel }
+    ? {
+        href: contact.linkedinUrl,
+        label: contact.linkedinLabel,
+        kind: "linkedin" as const,
+      }
     : null,
 ].filter((item) => item !== null);
+
+const socialLinkClass =
+  "inline-flex size-11 items-center justify-center rounded-md text-foreground transition-opacity duration-200 hover:opacity-70 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50";
 
 export function SiteFooter() {
   return (
@@ -29,11 +41,12 @@ export function SiteFooter() {
             <a
               key={item.href}
               href={item.href}
-              className={navLinkClass}
+              aria-label={item.label}
+              className={socialLinkClass}
               target="_blank"
               rel="noreferrer"
             >
-              {item.label}
+              <SocialMark kind={item.kind} />
             </a>
           ))}
         </nav>

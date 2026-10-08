@@ -1,22 +1,29 @@
 import type { ContactContent } from "../data/contact";
+import { SocialMark } from "./social-mark";
 
 type ContactSectionProps = {
   contact: ContactContent;
 };
 
 const linkClass =
-  "inline-flex h-11 items-center text-base text-primary underline-offset-4 transition-colors duration-200 hover:underline focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50";
+  "inline-flex h-11 items-center gap-2 text-base text-primary underline-offset-4 transition-colors duration-200 hover:underline focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50";
 
 export function ContactSection({ contact }: ContactSectionProps) {
   const links = [
     contact.email
-      ? { href: `mailto:${contact.email}`, label: contact.email, external: false }
+      ? {
+          href: `mailto:${contact.email}`,
+          label: contact.email,
+          external: false,
+          kind: null,
+        }
       : null,
     contact.githubUrl
       ? {
           href: contact.githubUrl,
           label: contact.githubLabel,
           external: true,
+          kind: "github" as const,
         }
       : null,
     contact.linkedinUrl
@@ -24,10 +31,16 @@ export function ContactSection({ contact }: ContactSectionProps) {
           href: contact.linkedinUrl,
           label: contact.linkedinLabel,
           external: true,
+          kind: "linkedin" as const,
         }
       : null,
     contact.resumeUrl
-      ? { href: contact.resumeUrl, label: "Resume", external: false }
+      ? {
+          href: contact.resumeUrl,
+          label: "Resume",
+          external: false,
+          kind: null,
+        }
       : null,
   ].filter((item) => item !== null);
 
@@ -51,6 +64,9 @@ export function ContactSection({ contact }: ContactSectionProps) {
                     ? { target: "_blank", rel: "noreferrer" }
                     : {})}
                 >
+                  {item.kind ? (
+                    <SocialMark kind={item.kind} className="size-5" />
+                  ) : null}
                   {item.label}
                 </a>
               </li>

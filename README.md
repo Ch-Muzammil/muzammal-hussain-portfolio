@@ -1,4 +1,4 @@
-# Next Base App
+# Muzammal's Hussain Portfolio
 
 Multi-role Next.js starter (admin / freelancer / client) with App Router, JWT-in-memory auth, Axios + Socket.IO clients, Zustand, and a shadcn/Base UI component kit.
 
