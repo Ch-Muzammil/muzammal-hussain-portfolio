@@ -1,10 +1,14 @@
 import { expect, test } from "@playwright/test";
 
 test.describe("public routes", () => {
-  test("home shows brand and sign in", async ({ page }) => {
+  test("home shows the portfolio headline", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByRole("heading", { name: "Base App" })).toBeVisible();
-    await expect(page.getByRole("link", { name: "Sign in" }).first()).toBeVisible();
+    await expect(
+      page.getByRole("heading", {
+        name: "I build web products that are clear, fast, and easy to use.",
+      }),
+    ).toBeVisible();
+    await expect(page.getByRole("link", { name: "Sign in" })).toHaveCount(0);
   });
 
   test("404 page for unknown routes", async ({ page }) => {

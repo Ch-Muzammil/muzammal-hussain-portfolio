@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { buttonVariants } from "@/components/ui/Button";
+import { cn } from "@/lib/utils";
 
 type NotFoundViewProps = {
   title?: string;
@@ -12,27 +14,24 @@ export function NotFoundView({
   return (
     <main className="flex flex-1 flex-col items-center justify-center px-6 py-24">
       <div className="mx-auto max-w-md text-center">
-        <p className="font-mono text-sm font-medium tracking-wide text-zinc-500 dark:text-zinc-400">
+        <p className="font-mono text-sm font-medium tracking-wide text-muted-foreground">
           404
         </p>
-        <h1 className="mt-3 text-3xl font-semibold tracking-tight text-foreground">
+        <h1 className="mt-3 font-heading text-3xl tracking-tight text-foreground">
           {title}
         </h1>
-        <p className="mt-3 text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
+        <p className="mt-3 text-base leading-relaxed text-muted-foreground">
           {description}
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <Link
-            href="/"
-            className="inline-flex h-11 items-center justify-center rounded-lg bg-foreground px-5 text-sm font-medium text-background transition-opacity hover:opacity-90"
-          >
+          <Link href="/" className={cn(buttonVariants(), "h-11 px-5")}>
             Go home
           </Link>
           <Link
-            href="/login"
-            className="inline-flex h-11 items-center justify-center rounded-lg border border-zinc-200 px-5 text-sm font-medium text-foreground transition-colors hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-900"
+            href="/#work"
+            className={cn(buttonVariants({ variant: "outline" }), "h-11 px-5")}
           >
-            Sign in
+            View work
           </Link>
         </div>
       </div>

@@ -26,7 +26,7 @@ export const ROLE_NAV: Record<UserRole, NavItem[]> = {
 };
 
 export const PUBLIC_NAV: NavItem[] = [
-  { label: "Home", href: "/" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "About", href: "/about" },
+  { label: "Work", href: "/#work" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ];

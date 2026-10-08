@@ -14,6 +14,10 @@ describe("nav config", () => {
   });
 
   it("exposes public nav links", () => {
-    expect(PUBLIC_NAV.some((i) => i.href === "/")).toBe(true);
+    expect(PUBLIC_NAV.map((item) => item.href)).toEqual([
+      "/#work",
+      "/#about",
+      "/#contact",
+    ]);
   });
 });
