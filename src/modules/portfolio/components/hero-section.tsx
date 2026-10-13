@@ -34,15 +34,21 @@ export function HeroSection({ hero, contact }: HeroSectionProps) {
 
   return (
     <section className="pt-12 sm:pt-16 lg:pt-20">
-      <div className="mx-auto grid w-full max-w-6xl items-end gap-8 px-4 sm:gap-10 sm:px-6 lg:grid-cols-[minmax(0,56fr)_minmax(16rem,44fr)] lg:gap-14 lg:px-8">
-        <div className="motion-enter pb-12 sm:pb-14 lg:pb-16">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-8 px-4 sm:gap-10 sm:px-6 lg:px-8 xl:grid-cols-[auto_minmax(17rem,1fr)] xl:gap-16">
+        <div className="motion-enter pb-12 sm:pb-14 xl:pb-8">
           <p className="font-mono text-xs tracking-[0.16em] text-primary uppercase">
             {hero.eyebrow}
           </p>
-          <h1 className="mt-5 max-w-3xl font-heading text-[2.5rem] leading-[1.12] tracking-tight text-balance sm:text-[2.75rem] lg:text-[3.5rem] xl:text-[3.75rem]">
-            {hero.headline}
+          <p className="mt-3 text-sm text-muted-foreground">{hero.availability}</p>
+          <h1 className="mt-5 max-w-xl font-heading text-[2.5rem] leading-[1.1] tracking-tight text-balance sm:text-[2.75rem] xl:max-w-none xl:text-[3.375rem] xl:leading-[1.08]">
+            <span className="xl:hidden">{hero.headline}</span>
+            {hero.headlineLines.map((line) => (
+              <span key={line} className="hidden whitespace-nowrap xl:block">
+                {line}
+              </span>
+            ))}
           </h1>
-          <p className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+          <p className="mt-7 max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg">
             {hero.support}
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -83,20 +89,26 @@ export function HeroSection({ hero, contact }: HeroSectionProps) {
               ))}
             </div>
           ) : null}
-          <p className="mt-9 font-mono text-xs tracking-wide text-muted-foreground uppercase">
+          <p className="mt-9 font-mono text-sm tracking-[0.12em] text-muted-foreground uppercase">
             {hero.stack.join(" · ")}
           </p>
         </div>
         {hero.portrait.src ? (
-          <Image
-            src={hero.portrait.src}
-            alt={hero.portrait.alt}
-            width={1122}
-            height={1402}
-            preload
-            sizes="(min-width: 1024px) 40vw, 288px"
-            className="motion-enter-late relative z-10 -mb-px block h-auto w-64 object-contain sm:w-72 lg:w-full"
-          />
+          <div className="relative mx-auto w-64 sm:w-80 xl:w-[28rem] xl:justify-self-end">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-[-8%] top-[12%] -bottom-2 z-0 bg-[radial-gradient(ellipse_at_center,color-mix(in_srgb,var(--primary)_16%,transparent),transparent_68%)]"
+            />
+            <Image
+              src={hero.portrait.src}
+              alt={hero.portrait.alt}
+              width={1122}
+              height={1402}
+              preload
+              sizes="(min-width: 1280px) 448px, 320px"
+              className="motion-enter-late relative z-10 block h-auto w-full object-contain"
+            />
+          </div>
         ) : null}
       </div>
     </section>

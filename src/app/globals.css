@@ -166,6 +166,12 @@
       animation-timeline: view();
       animation-range: entry 0% entry 28%;
     }
+
+    .motion-card {
+      animation: motion-rise 700ms ease both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
   }
 }
 

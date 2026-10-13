@@ -24,7 +24,7 @@ const socials = [
 ].filter((item) => item !== null);
 
 const socialLinkClass =
-  "inline-flex size-11 items-center justify-center rounded-md text-foreground transition-opacity duration-200 hover:opacity-70 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50";
+  "inline-flex size-11 items-center justify-center rounded-md text-foreground focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50";
 
 export function SiteFooter() {
   return (

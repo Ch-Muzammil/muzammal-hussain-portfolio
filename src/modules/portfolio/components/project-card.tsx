@@ -15,7 +15,7 @@ export function ProjectCard({ project, size }: ProjectCardProps) {
   return (
     <Link
       href={`/work/${project.slug}`}
-      className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card outline-none transition-colors duration-300 hover:border-primary/50 focus-visible:ring-3 focus-visible:ring-ring/50"
+      className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card outline-none transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-primary/50 focus-visible:ring-3 focus-visible:ring-ring/50"
     >
       {featured ? <div className="h-px bg-primary" /> : null}
       <div

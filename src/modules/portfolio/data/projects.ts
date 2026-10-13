@@ -2,8 +2,10 @@ import type { Project } from "../types/project";
 
 /** Edit this file to change the work section and every project. Screenshots go in public/images/projects/<slug>/. */
 export const workSection = {
-  heading: "Selected work",
-  intro: "Three products up front, then the rest of the work.",
+  eyebrow: "Selected work",
+  heading: "Products I've helped build.",
+  intro:
+    "Frontend interfaces, and one full-stack product. Each card names the stack and the part I worked on.",
 };
 
 export const projects: Project[] = [

@@ -17,6 +17,7 @@ export default function HomePage() {
     <main>
       <HeroSection hero={hero} contact={contact} />
       <ProjectsSection
+        eyebrow={workSection.eyebrow}
         heading={workSection.heading}
         intro={workSection.intro}
         featured={getFeaturedProjects()}
